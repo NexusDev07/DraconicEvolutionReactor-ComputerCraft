@@ -1,29 +1,29 @@
 function getReactorFuelConversionRate(reactor)
-    return reactor.getReactorInfo.fuelConversionRate
+    return reactor.getReactorInfo().fuelConversionRate
 end
 
 function getTemperature(reactor)
-    return reactor.getReactorInfo.temperature
+    return reactor.getReactorInfo().temperature
 end
 
 function getFieldStrength(reactor)
-    return reactor.getReactorInfo.fieldStrength
+    return reactor.getReactorInfo().fieldStrength
 end
 
 function getFieldDrainRate(reactor)
-    return reactor.getReactorInfo.fieldDrainRate
+    return reactor.getReactorInfo().fieldDrainRate
 end
 
 function getFailSafe(reactor)
-    return reactor.getReactorInfo.failSafe
+    return reactor.getReactorInfo().failSafe
 end
 
 function getReactorGenerationRate(reactor)
-    return reactor.getReactorInfo.generationRate
+    return reactor.getReactorInfo().generationRate
 end
 
 function getReactorStatus(reactor)
-    local status = reactor.getReactorInfo.status
+    local status = reactor.getReactorInfo().status
     if not status then
         status = "offline"
     end
@@ -31,23 +31,23 @@ function getReactorStatus(reactor)
 end
 
 function getReactorEnergySaturation(reactor)
-    return reactor.getReactorInfo.energySaturation
+    return reactor.getReactorInfo().energySaturation
 end
 
 function getReactorMaxFuelConversion(reactor)
-    return reactor.getReactorInfo.maxFuelConversion
+    return reactor.getReactorInfo().maxFuelConversion
 end
 
 function getReactorFuelConversion(reactor)
-    return reactor.getReactorInfo.fuelConversion
+    return reactor.getReactorInfo().fuelConversion
 end
 
 function getReactorMaxFieldStrength(reactor)
-    return reactor.getReactorInfo.maxFieldStrength
+    return reactor.getReactorInfo().maxFieldStrength
 end
 
 function getReactorMaxEnergySaturation(reactor)
-    return reactor.getReactorInfo.maxEnergySaturation
+    return reactor.getReactorInfo().maxEnergySaturation
 end
 
 function monitorWriteText(monitor, text, x, y, color, backgroundColor)
