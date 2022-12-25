@@ -48,8 +48,30 @@ monitorDrawVerticalLine(monitor, 78, 3, 12, colors.gray)
 
 while true do
     local status = getReactorStatus(reactor)
+    local displayedStatus = {}
 
-    monitorWriteText(monitor, "Status: ", 4, 3, colors.white, colors.black)
+    if status == "cold" then
+        displayedStatus['status'] = "Offline"
+        displayedStatus['color'] = colors.red
+    elseif status == "warming_up" then
+        displayedStatus['status'] = "Warming Up"
+        displayedStatus['color'] = colors.yellow
+    elseif status == "stopping" then
+        displayedStatus['status'] = "Stopping"
+        displayedStatus['color'] = colors.orange
+    elseif status == "cooling" then
+        displayedStatus['status'] = "Cooling"
+        displayedStatus['color'] = colors.blue
+    elseif status == "running" then
+        displayedStatus['status'] = "Online"
+        displayedStatus['color'] = colors.green
+    elseif status == "invalid" then
+        displayedStatus['status'] = "Invalid Setup"
+        displayedStatus['color'] = colors.purple
+    end
+
+    monitorWriteText(monitor, "Status: ", 4, 4, colors.white, colors.black)
+    monitorWriteText(monitor, displayedStatus['status'], 11, 4, displayedStatus['color'], colors.black)
 
     sleep(refreshTime)
 end
