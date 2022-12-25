@@ -34,3 +34,5 @@ local monitor = peripheral.wrap(monitorName)
 
 monitor.setBackgroundColor(colors.black)
 monitor.clear()
+
+monitorDrawLine(monitor, 1, 1, 19, colors.white)
