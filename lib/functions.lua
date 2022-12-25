@@ -23,11 +23,7 @@ function getReactorGenerationRate(reactor)
 end
 
 function getReactorStatus(reactor)
-    local status = reactor.getReactorInfo().status
-    if not status then
-        status = "offline"
-    end
-    return status
+    return reactor.getReactorInfo().status
 end
 
 function getReactorEnergySaturation(reactor)
