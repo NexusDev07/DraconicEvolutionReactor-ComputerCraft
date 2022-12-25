@@ -36,17 +36,17 @@ local outputFluxGate = peripheral.wrap("left")
 local reactor = peripheral.wrap("back")
 local monitor = peripheral.wrap(monitorName)
 
-monitor.setBackgroundColor(colors.black)
-monitor.clear()
-monitor.setTextScale(0.5)
-
-monitorDrawLine(monitor, 2, 2, 7, colors.gray)
-monitorWriteText(monitor, "INFO", 7, 2, colors.white, colors.black)
-monitorDrawLine(monitor, 11, 2, 68, colors.gray)
-monitorDrawVerticalLine(monitor, 2, 3, 12, colors.gray)
-monitorDrawVerticalLine(monitor, 78, 3, 12, colors.gray)
-
 while true do
+    monitor.setBackgroundColor(colors.black)
+    monitor.clear()
+    monitor.setTextScale(0.5)
+    
+    monitorDrawLine(monitor, 2, 2, 7, colors.gray)
+    monitorWriteText(monitor, "INFO", 7, 2, colors.white, colors.black)
+    monitorDrawLine(monitor, 11, 2, 68, colors.gray)
+    monitorDrawVerticalLine(monitor, 2, 3, 12, colors.gray)
+    monitorDrawVerticalLine(monitor, 78, 3, 12, colors.gray)
+
     local status = getReactorStatus(reactor)
     local displayedStatus = {}
 
