@@ -32,3 +32,7 @@ end
 local inputFluxGate = peripheral.wrap(inputFluxGateName)
 local outputFluxGate = peripheral.wrap("left")
 local reactor = peripheral.wrap("back")
+local monitor = peripheral.wrap(monitorName)
+
+monitor.setBackgroundColor(colors.black)
+monitor.clear()
