@@ -38,10 +38,11 @@ local monitor = peripheral.wrap(monitorName)
 
 monitor.setBackgroundColor(colors.black)
 monitor.clear()
+monitor.setTextScale(0.5)
 
-monitorDrawLine(monitor, 2, 2, 5, colors.gray)
-monitorWriteText(monitor, "INFO", 5, 2, colors.white, colors.black)
-monitorDrawLine(monitor, 9, 2, 30, colors.gray)
+monitorDrawLine(monitor, 2, 2, 7, colors.gray)
+monitorWriteText(monitor, "INFO", 7, 2, colors.white, colors.black)
+monitorDrawLine(monitor, 11, 2, 68, colors.gray)
 
 while true do
     local status = getReactorStatus(reactor)
