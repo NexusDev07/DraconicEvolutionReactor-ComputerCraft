@@ -62,3 +62,11 @@ function monitorDrawLine(monitor, x, y, length, color)
     monitor.setBackgroundColor(color)
     monitor.write(string.rep(" ", length))
 end
+
+function monitorDrawVerticalLine(monitor, x, y, length, color)
+    for i = 0, length do
+        monitor.setCursorPos(x, y + i)
+        monitor.setBackgroundColor(color)
+        monitor.write(" ")
+    end
+end

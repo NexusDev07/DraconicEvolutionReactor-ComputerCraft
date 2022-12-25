@@ -43,11 +43,13 @@ monitor.setTextScale(0.5)
 monitorDrawLine(monitor, 2, 2, 7, colors.gray)
 monitorWriteText(monitor, "INFO", 7, 2, colors.white, colors.black)
 monitorDrawLine(monitor, 11, 2, 68, colors.gray)
+monitorDrawVerticalLine(monitor, 2, 3, 12, colors.gray)
+monitorDrawVerticalLine(monitor, 79, 3, 12, colors.gray)
 
 while true do
     local status = getReactorStatus(reactor)
 
-    monitorWriteText(monitor, "Status: " .. status, 2, 3, colors.white, colors.black)
+    --monitorWriteText(monitor, "Status: " .. status, 2, 3, colors.white, colors.black)
 
     sleep(refreshTime)
 end
