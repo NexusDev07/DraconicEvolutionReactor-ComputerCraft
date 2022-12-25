@@ -54,6 +54,6 @@ end
 
 function monitorDrawLine(monitor, x, y, length, color)
     monitor.setCursorPos(x, y)
-    monitor.setTextColor(color)
+    monitor.setBackgroundColor(color)
     monitor.write(string.rep(" ", length))
 end

@@ -1,3 +1,5 @@
+require "lib/functions"
+
 local peripherals = peripheral.getNames()
 
 local inputFluxGateName = nil
