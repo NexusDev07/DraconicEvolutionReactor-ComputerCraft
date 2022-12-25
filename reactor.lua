@@ -46,5 +46,7 @@ monitorDrawLine(monitor, 9, 2, 30, colors.gray)
 while true do
     local status = getReactorStatus(reactor)
 
+    monitorWriteText(monitor, "Status: " .. status, 2, 3, colors.white, colors.black)
+
     sleep(refreshTime)
 end
