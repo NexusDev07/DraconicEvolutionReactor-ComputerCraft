@@ -1,5 +1,3 @@
-local f = require("lib/functions.lua")
-
 local peripherals = peripheral.getNames()
 
 local inputFluxGateName = nil
