@@ -1,5 +1,7 @@
 require "lib/functions"
 
+local refreshTime = 1
+
 local peripherals = peripheral.getNames()
 
 local inputFluxGateName = nil
@@ -40,3 +42,16 @@ monitor.clear()
 monitorDrawLine(monitor, 2, 2, 5, colors.gray)
 monitorWriteText(monitor, "INFO", 5, 2, colors.white, colors.black)
 monitorDrawLine(monitor, 9, 2, 30, colors.gray)
+
+while true do
+    local status = getReactorStatus(reactor)
+
+    if not status then
+        monitorWriteText(monitor, "Reactor is offline", 10, 3, colors.red, colors.black)
+    else
+        monitorWriteText(monitor, "Reactor is online", 10, 3, colors.green, colors.black)
+    end
+
+
+    sleep(refreshTime)
+end
