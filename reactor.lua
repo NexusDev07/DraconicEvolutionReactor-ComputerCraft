@@ -1,10 +1,18 @@
+os.loadAPI("lib/functions.lua")
+
 local peripherals = peripheral.getNames()
 
 local inputFluxGateName = nil
+local monitorName = nil
 
 for i = 1, #peripherals do
-    if string.match(peripherals[i], "flux_gate") then
+    if not inputFluxGateName and string.match(peripherals[i], "flux_gate") then
         inputFluxGateName = peripherals[i]
+    end
+    if not monitorName and string.match(peripherals[i], "monitor") then
+        monitorName = peripherals[i]
+    end
+    if inputFluxGateName and monitorName then
         break
     end
 end
@@ -20,3 +28,7 @@ end
 if not peripheral.isPresent("back") then
     return error("No reactor found!", 0)
 end
+
+local inputFluxGate = peripheral.wrap(inputFluxGateName)
+local outputFluxGate = peripheral.wrap("left")
+local reactor = peripheral.wrap("back")
