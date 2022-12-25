@@ -9,7 +9,7 @@ for i = 1, #peripherals do
     end
 end
 
-if !inputFluxGateExists then
+if inputFluxGateExists then
     return error("No input flux gate found!", 0)
 end
 
