@@ -39,4 +39,4 @@ monitor.clear()
 
 monitorDrawLine(monitor, 2, 2, 3, colors.gray)
 monitorWriteText(monitor, "INFO", 4, 2, colors.white)
-monitorDrawLine(monitor, 2, 3, 19, colors.gray)
+monitorDrawLine(monitor, 7, 2, 2, 19, colors.gray)
