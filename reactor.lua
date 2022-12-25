@@ -1,15 +1,15 @@
 local peripherals = peripheral.getNames()
 
-local inputFluxGateExists = false
+local inputFluxGateName = nil
 
 for i = 1, #peripherals do
     if string.match(peripherals[i], "flux_gate") then
-        inputFluxGateExists = true
+        inputFluxGateName = peripherals[i]
         break
     end
 end
 
-if not inputFluxGateExists then
+if not inputFluxGateName then
     return error("No input flux gate found!", 0)
 end
 
