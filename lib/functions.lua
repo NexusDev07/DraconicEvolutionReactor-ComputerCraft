@@ -46,9 +46,10 @@ function getReactorMaxEnergySaturation(reactor)
     return reactor.getReactorInfo.maxEnergySaturation
 end
 
-function monitorWriteText(monitor, text, x, y, color)
+function monitorWriteText(monitor, text, x, y, color, backgroundColor)
     monitor.setCursorPos(x, y)
     monitor.setTextColor(color)
+    monitor.setBackgroundColor(backgroundColor)
     monitor.write(text)
 end
 

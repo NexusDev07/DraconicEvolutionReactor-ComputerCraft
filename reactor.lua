@@ -38,5 +38,5 @@ monitor.setBackgroundColor(colors.black)
 monitor.clear()
 
 monitorDrawLine(monitor, 2, 2, 3, colors.gray)
-monitorWriteText(monitor, "INFO", 4, 2, colors.white)
+monitorWriteText(monitor, "INFO", 4, 2, colors.white, colors.black)
 monitorDrawLine(monitor, 7, 2, 2, 19, colors.gray)
