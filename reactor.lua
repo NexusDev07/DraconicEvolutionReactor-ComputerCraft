@@ -166,5 +166,29 @@ while true do
     monitorWriteTextRight(monitor, energySaturationPercentage .. "%", 14, energySaturationPercentageColor, colors.black)
     monitorDrawLine(monitor, 6, 16, energySaturationLine, energySaturationPercentageColor)
 
+    local fuelConversionRate = getReactorFuelConversionRate(reactor)
+    local maxFuelConversionRate = getReactorMaxFuelConversionRate(reactor)
+    local fuelConversionRatePercentage = math.floor((fuelConversionRate / maxFuelConversionRate) * 100)
+
+    local fuelConversionRatePercentageColor = nil
+
+    if fuelConversionRatePercentage <= 40 then
+        fuelConversionRatePercentageColor = colors.green
+    elseif fuelConversionRatePercentage <= 50 then
+        fuelConversionRatePercentageColor = colors.lime
+    elseif fuelConversionRatePercentage <= 60 then
+        fuelConversionRatePercentageColor = colors.yellow
+    elseif fuelConversionRatePercentage < 80 then
+        fuelConversionRatePercentageColor = colors.orange
+    elseif fuelConversionRatePercentage >= 80 then
+        fuelConversionRatePercentageColor = colors.red
+    end
+
+    local fuelConversionRateLine = math.floor(70 / 100 * fuelConversionRatePercentage)
+
+    monitorWriteText(monitor, "Fuel Conversion Level: ", 6, 18, colors.white, colors.black)
+    monitorWriteTextRight(monitor, fuelConversionRatePercentage .. "%", 18, fuelConversionRatePercentageColor, colors.black)
+    monitorDrawLine(monitor, 6, 20, fuelConversionRateLine, fuelConversionRatePercentageColor)
+
     sleep(refreshTime)
 end
