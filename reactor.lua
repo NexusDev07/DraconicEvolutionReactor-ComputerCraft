@@ -148,7 +148,7 @@ while true do
 
     local energySaturationPercentageColor = nil
 
-    if energySaturationPercentage <= 15 then
+    if energySaturationPercentage <= 20 then
         energySaturationPercentageColor = colors.green
     elseif energySaturationPercentage <= 30 then
         energySaturationPercentageColor = colors.lime
