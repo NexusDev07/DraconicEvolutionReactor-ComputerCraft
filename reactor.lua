@@ -60,7 +60,7 @@ while true do
         displayedStatus['status'] = "Stopping"
         displayedStatus['color'] = colors.orange
     elseif status == "cooling" then
-        displayedStatus['status'] = "Cooling"
+        displayedStatus['status'] = "Cooling Down"
         displayedStatus['color'] = colors.blue
     elseif status == "running" then
         displayedStatus['status'] = "Online"
@@ -71,7 +71,7 @@ while true do
     end
 
     monitorWriteText(monitor, "Status: ", 4, 4, colors.white, colors.black)
-    monitorWriteText(monitor, displayedStatus['status'], 11, 4, displayedStatus['color'], colors.black)
+    monitorWriteText(monitor, displayedStatus['status'], 64, 4, displayedStatus['color'], colors.black)
 
     sleep(refreshTime)
 end
