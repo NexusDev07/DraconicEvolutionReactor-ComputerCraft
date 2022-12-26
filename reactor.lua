@@ -79,5 +79,12 @@ while true do
     monitorWriteText(monitor, "Status: ", 4, 4, colors.white, colors.black)
     monitorWriteText(monitor, displayedStatus['status'], 64, 4, displayedStatus['color'], colors.black)
 
+    local fieldStrength = getFieldStrength(reactor)
+    local maxFieldStrength = getReactorMaxFieldStrength(reactor)
+    local percentage = math.ceil((fieldStrength / maxFieldStrength) * 100)
+
+    monitorWriteText(monitor, "Field Strength: ", 4, 6, colors.white, colors.black)
+    monitorWriteText(monitor, fieldStrength .. " / " .. maxFieldStrength .. " (" .. percentage .. "%)", 69, 6, colors.white, colors.black)
+
     sleep(refreshTime)
 end
