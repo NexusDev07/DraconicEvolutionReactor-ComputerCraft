@@ -22,12 +22,14 @@ function checkForUpdate()
 
             term.setTextColor(colors.white)
         else
+            term.setTextColor(colors.green)
             print("No update available.")
-            return true
+            term.setTextColor(colors.white)
         end
     else
+        term.setTextColor(colors.red)
         print("Failed to check for updates.")
-        return false
+        term.setTextColor(colors.white)
     end
 end
 
