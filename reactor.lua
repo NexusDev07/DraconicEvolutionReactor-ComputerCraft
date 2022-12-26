@@ -80,6 +80,30 @@ while true do
     monitorWriteText(monitor, "Status: ", 6, 4, colors.white, colors.black)
     monitorWriteTextRight(monitor, displayedStatus['status'], 4, displayedStatus['color'], colors.black)
 
+    local failSafe = getReactorFailSafe(reactor)
+    local displayedFailSafe = {}
+
+    if failSafe then
+        displayedFailSafe['status'] = "Enabled"
+        displayedFailSafe['color'] = colors.green
+    else
+        displayedFailSafe['status'] = "Disabled"
+        displayedFailSafe['color'] = colors.red
+    end
+    
+    monitorWriteText(monitor, "Fail Safe: ", 6, 6, colors.white, colors.black)
+    monitorWriteTextRight(monitor, displayedFailSafe['status'], 6, displayedFailSafe['color'], colors.black)
+
+    local generationRate = getReactorGenerationRate(reactor)
+
+    monitorWriteText(monitor, "Generation Rate: ", 6, 8, colors.white, colors.black)
+    monitorWriteTextRight(monitor, generationRate .. " RF/t", 8, colors.white, colors.black)
+
+    local fuelConversionRate = getReactorFuelConversionRate(reactor)
+
+    monitorWriteText(monitor, "Fuel Conversion Rate: ", 6, 10, colors.white, colors.black)
+    monitorWriteTextRight(monitor, fuelConversionRate .. " mb/t", 10, colors.white, colors.black)
+
     local temperature = getReactorTemperature(reactor)
     local maxTemperature = 8000
     local temperaturePercentage = math.floor((temperature / maxTemperature) * 100)
@@ -108,8 +132,8 @@ while true do
 
     local temperatureLine = math.floor(70 / 100 * temperaturePercentage)
 
-    monitorWriteText(monitor, "Temperature: ", 6, 6, colors.white, colors.black)
-    monitorWriteTextRight(monitor, temperature .. "°C (" .. temperaturePercentage .. "%)", 6, temperaturePercentageColor, colors.black)
+    monitorWriteText(monitor, "Temperature: ", 6, 12, colors.white, colors.black)
+    monitorWriteTextRight(monitor, temperature .. "°C (" .. temperaturePercentage .. "%)", 12, temperaturePercentageColor, colors.black)
     monitorDrawLine(monitor, 6, 8, temperatureLine, temperaturePercentageColor)
 
     local fieldStrength = getReactorFieldStrength(reactor)
@@ -138,8 +162,8 @@ while true do
 
     local fieldStrengthLine = math.floor(70 / 100 * fieldStrengthPercentage)
 
-    monitorWriteText(monitor, "Field Strength: ", 6, 10, colors.white, colors.black)
-    monitorWriteTextRight(monitor, fieldStrengthPercentage .. "%", 10, fieldStrengthPercentageColor, colors.black)
+    monitorWriteText(monitor, "Field Strength: ", 6, 14, colors.white, colors.black)
+    monitorWriteTextRight(monitor, fieldStrengthPercentage .. "%", 14, fieldStrengthPercentageColor, colors.black)
     monitorDrawLine(monitor, 6, 12, fieldStrengthLine, fieldStrengthPercentageColor)
 
     local energySaturation = getReactorEnergySaturation(reactor)
@@ -162,8 +186,8 @@ while true do
 
     local energySaturationLine = math.floor(70 / 100 * energySaturationPercentage)
 
-    monitorWriteText(monitor, "Energy Saturation: ", 6, 14, colors.white, colors.black)
-    monitorWriteTextRight(monitor, energySaturationPercentage .. "%", 14, energySaturationPercentageColor, colors.black)
+    monitorWriteText(monitor, "Energy Saturation: ", 6, 16, colors.white, colors.black)
+    monitorWriteTextRight(monitor, energySaturationPercentage .. "%", 16, energySaturationPercentageColor, colors.black)
     monitorDrawLine(monitor, 6, 16, energySaturationLine, energySaturationPercentageColor)
 
     local fuelConversion = getReactorFuelConversion(reactor)
@@ -186,33 +210,9 @@ while true do
 
     local fuelConversionRateLine = math.floor(70 / 100 * fuelConversionRatePercentage)
 
-    monitorWriteText(monitor, "Fuel Conversion Level: ", 6, 18, colors.white, colors.black)
-    monitorWriteTextRight(monitor, fuelConversionRatePercentage .. "%", 18, fuelConversionRatePercentageColor, colors.black)
-    monitorDrawLine(monitor, 6, 20, fuelConversionRateLine, fuelConversionRatePercentageColor)
-
-    local failSafe = getReactorFailSafe(reactor)
-    local displayedFailSafe = {}
-
-    if failSafe then
-        displayedFailSafe['status'] = "Enabled"
-        displayedFailSafe['color'] = colors.green
-    else
-        displayedFailSafe['status'] = "Disabled"
-        displayedFailSafe['color'] = colors.red
-    end
-    
-    monitorWriteText(monitor, "Fail Safe: ", 6, 22, colors.white, colors.black)
-    monitorWriteTextRight(monitor, displayedFailSafe['status'], 22, displayedFailSafe['color'], colors.black)
-
-    local generationRate = getReactorGenerationRate(reactor)
-
-    monitorWriteText(monitor, "Generation Rate: ", 6, 24, colors.white, colors.black)
-    monitorWriteTextRight(monitor, generationRate .. " RF/t", 24, colors.white, colors.black)
-
-    local fuelConversionRate = getReactorFuelConversionRate(reactor)
-
-    monitorWriteText(monitor, "Fuel Conversion Rate: ", 6, 26, colors.white, colors.black)
-    monitorWriteTextRight(monitor, fuelConversionRate .. " mb/t", 26, colors.white, colors.black)
+    monitorWriteText(monitor, "Fuel Conversion Level: ", 6, 20, colors.white, colors.black)
+    monitorWriteTextRight(monitor, fuelConversionRatePercentage .. "%", 20, fuelConversionRatePercentageColor, colors.black)
+    monitorDrawLine(monitor, 6, 22, fuelConversionRateLine, fuelConversionRatePercentageColor)
 
     sleep(refreshTime)
 end
