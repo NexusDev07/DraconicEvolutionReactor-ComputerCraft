@@ -134,7 +134,7 @@ while true do
 
     monitorWriteText(monitor, "Temperature: ", 6, 12, colors.white, colors.black)
     monitorWriteTextRight(monitor, temperature .. "°C (" .. temperaturePercentage .. "%)", 12, temperaturePercentageColor, colors.black)
-    monitorDrawLine(monitor, 6, 8, temperatureLine, temperaturePercentageColor)
+    monitorDrawLine(monitor, 6, 14, temperatureLine, temperaturePercentageColor)
 
     local fieldStrength = getReactorFieldStrength(reactor)
     local maxFieldStrength = getReactorMaxFieldStrength(reactor)
@@ -162,9 +162,9 @@ while true do
 
     local fieldStrengthLine = math.floor(70 / 100 * fieldStrengthPercentage)
 
-    monitorWriteText(monitor, "Field Strength: ", 6, 14, colors.white, colors.black)
-    monitorWriteTextRight(monitor, fieldStrengthPercentage .. "%", 14, fieldStrengthPercentageColor, colors.black)
-    monitorDrawLine(monitor, 6, 12, fieldStrengthLine, fieldStrengthPercentageColor)
+    monitorWriteText(monitor, "Field Strength: ", 6, 16, colors.white, colors.black)
+    monitorWriteTextRight(monitor, fieldStrengthPercentage .. "%", 16, fieldStrengthPercentageColor, colors.black)
+    monitorDrawLine(monitor, 6, 18, fieldStrengthLine, fieldStrengthPercentageColor)
 
     local energySaturation = getReactorEnergySaturation(reactor)
     local maxEnergySaturation = getReactorMaxEnergySaturation(reactor)
@@ -186,9 +186,9 @@ while true do
 
     local energySaturationLine = math.floor(70 / 100 * energySaturationPercentage)
 
-    monitorWriteText(monitor, "Energy Saturation: ", 6, 16, colors.white, colors.black)
-    monitorWriteTextRight(monitor, energySaturationPercentage .. "%", 16, energySaturationPercentageColor, colors.black)
-    monitorDrawLine(monitor, 6, 16, energySaturationLine, energySaturationPercentageColor)
+    monitorWriteText(monitor, "Energy Saturation: ", 6, 20, colors.white, colors.black)
+    monitorWriteTextRight(monitor, energySaturationPercentage .. "%", 20, energySaturationPercentageColor, colors.black)
+    monitorDrawLine(monitor, 6, 22, energySaturationLine, energySaturationPercentageColor)
 
     local fuelConversion = getReactorFuelConversion(reactor)
     local maxFuelConversion = getReactorMaxFuelConversion(reactor)
@@ -210,9 +210,9 @@ while true do
 
     local fuelConversionRateLine = math.floor(70 / 100 * fuelConversionRatePercentage)
 
-    monitorWriteText(monitor, "Fuel Conversion Level: ", 6, 20, colors.white, colors.black)
-    monitorWriteTextRight(monitor, fuelConversionRatePercentage .. "%", 20, fuelConversionRatePercentageColor, colors.black)
-    monitorDrawLine(monitor, 6, 22, fuelConversionRateLine, fuelConversionRatePercentageColor)
+    monitorWriteText(monitor, "Fuel Conversion Level: ", 6, 24, colors.white, colors.black)
+    monitorWriteTextRight(monitor, fuelConversionRatePercentage .. "%", 24, fuelConversionRatePercentageColor, colors.black)
+    monitorDrawLine(monitor, 6, 26, fuelConversionRateLine, fuelConversionRatePercentageColor)
 
     sleep(refreshTime)
 end
