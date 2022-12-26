@@ -2,19 +2,19 @@ function getReactorFuelConversionRate(reactor)
     return reactor.getReactorInfo().fuelConversionRate
 end
 
-function getTemperature(reactor)
+function getReactorTemperature(reactor)
     return reactor.getReactorInfo().temperature
 end
 
-function getFieldStrength(reactor)
+function getReactorFieldStrength(reactor)
     return reactor.getReactorInfo().fieldStrength
 end
 
-function getFieldDrainRate(reactor)
+function getReactorFieldDrainRate(reactor)
     return reactor.getReactorInfo().fieldDrainRate
 end
 
-function getFailSafe(reactor)
+function getReactorFailSafe(reactor)
     return reactor.getReactorInfo().failSafe
 end
 
