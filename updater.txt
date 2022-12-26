@@ -1,0 +1,1 @@
+{"version": "1.0.0", "files": ["controllers/MonitorController.lua","controllers/ReactorController.lua","lib/updater.lua","reactor.lua"]}
