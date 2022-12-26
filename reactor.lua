@@ -81,7 +81,7 @@ while true do
 
     local fieldStrength = getFieldStrength(reactor)
     local maxFieldStrength = getReactorMaxFieldStrength(reactor)
-    local percentage = math.ceil((fieldStrength / maxFieldStrength) * 100)
+    local percentage = math.floor((fieldStrength / maxFieldStrength) * 100)
 
     local percentageColor = nil
 
