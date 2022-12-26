@@ -132,7 +132,7 @@ while true do
     elseif fieldStrengthPercentage >= 65 and fieldStrengthPercentage < 70 then
         fieldStrengthPercentageColor = colors.yellow
     elseif fieldStrengthPercentage >= 70 then
-        fieldStrengthPercentageColor = colors .orange
+        fieldStrengthPercentageColor = colors.orange
     end
 
     local fieldStrengthLine = math.floor(70 / 100 * fieldStrengthPercentage)
