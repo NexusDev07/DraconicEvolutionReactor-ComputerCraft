@@ -27,3 +27,11 @@ function monitorDrawVerticalLine(monitor, x, y, length, color)
         monitor.write(" ")
     end
 end
+
+function monitorClearLines(monitor, y, length)
+    for i = 0, length do
+        monitor.setCursorPos(1, y + i)
+        monitor.setBackgroundColor(colors.black)
+        monitor.write(string.rep(" ", monitor.getSize()))
+    end
+end

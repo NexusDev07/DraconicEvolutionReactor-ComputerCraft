@@ -87,7 +87,7 @@ while true do
     end
 
     monitor.setBackgroundColor(colors.black)
-    monitor.clear()
+    monitorClearLines(monitor, 3, 23)
     
     monitorDrawLine(monitor, 2, 2, 7, colors.gray)
     monitorWriteText(monitor, "INFO", 7, 2, colors.white, colors.black)
