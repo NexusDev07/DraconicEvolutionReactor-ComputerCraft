@@ -3,12 +3,14 @@ require "controllers/ReactorController"
 require "lib/updater"
 
 local refreshTime = 1
+local updateMessage = 0
 
 local peripherals = peripheral.getNames()
 
 local inputFluxGateName = nil
 local monitorName = nil
 
+print("Checking for updates...")
 checkForUpdate()
 
 for i = 1, #peripherals do
@@ -77,6 +79,11 @@ end
 
 while true do
     checkPeripherals()
+    
+    if updateMessage == 0 then
+        checkForUpdateWithoutRead()
+        updateMessage = 1
+    end
 
     monitor.setBackgroundColor(colors.black)
     monitor.clear()
