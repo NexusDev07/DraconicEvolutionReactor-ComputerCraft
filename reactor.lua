@@ -56,6 +56,8 @@ end
 
 monitor.clear()
 monitor.setTextScale(0.5)
+monitor.setTextColor(colors.white)
+monitor.setBackgroundColor(colors.black)
 
 monitorSizeX, monitorSizeY = monitor.getSize()
 
