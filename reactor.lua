@@ -36,6 +36,8 @@ local outputFluxGate = peripheral.wrap("left")
 local reactor = peripheral.wrap("back")
 local monitor = peripheral.wrap(monitorName)
 
+monitor.setTextScale(0.5)
+
 monitorSizeX, monitorSizeY = monitor.getSize()
 
 if monitorSizeX ~= 79 or monitorSizeY ~= 38 then
@@ -45,7 +47,6 @@ end
 while true do
     monitor.setBackgroundColor(colors.black)
     monitor.clear()
-    monitor.setTextScale(0.5)
     
     monitorDrawLine(monitor, 2, 2, 7, colors.gray)
     monitorWriteText(monitor, "INFO", 7, 2, colors.white, colors.black)
