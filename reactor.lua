@@ -77,7 +77,7 @@ while true do
     end
 
     monitorWriteText(monitor, "Status: ", 4, 4, colors.white, colors.black)
-    monitorWriteTextRight(monitor, displayedStatus['status'], 64, 4, displayedStatus['color'], colors.black)
+    monitorWriteTextRight(monitor, displayedStatus['status'], 4, displayedStatus['color'], colors.black)
 
     local fieldStrength = getFieldStrength(reactor)
     local maxFieldStrength = getReactorMaxFieldStrength(reactor)
