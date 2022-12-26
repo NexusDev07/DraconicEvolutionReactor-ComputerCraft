@@ -1,4 +1,5 @@
-require "lib/functions"
+require "controllers/MonitorController"
+require "controllers/ReactorController"
 
 local refreshTime = 1
 
