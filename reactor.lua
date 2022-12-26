@@ -50,19 +50,17 @@ end
 
 function checkPeripherals()
     if not peripheral.isPresent(inputFluxGateName) then
-        error("Input flux gate disconnected!")
+        return error("Input flux gate disconnected!")
     end
     if not peripheral.isPresent("left") then
-        error("Output flux gate disconnected!")
+        return error("Output flux gate disconnected!")
     end
     if not peripheral.isPresent("back") then
-        error("Reactor disconnected!")
+        return error("Reactor disconnected!")
     end
     if not peripheral.isPresent(monitorName) then
-        error("Monitor disconnected!")
+        return error("Monitor disconnected!")
     end
-
-    return nil
 end
 
 while true do
