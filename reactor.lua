@@ -31,6 +31,10 @@ if not peripheral.isPresent("back") then
     return error("No reactor found!", 0)
 end
 
+if not monitorName then
+    return error("No monitor found!", 0)
+end
+
 local inputFluxGate = peripheral.wrap(inputFluxGateName)
 local outputFluxGate = peripheral.wrap("left")
 local reactor = peripheral.wrap("back")
@@ -45,6 +49,8 @@ if monitorSizeX ~= 79 or monitorSizeY ~= 38 then
 end
 
 while true do
+    checkPeripherals()
+
     monitor.setBackgroundColor(colors.black)
     monitor.clear()
     
@@ -216,4 +222,19 @@ while true do
     monitorDrawLine(monitor, 6, 26, fuelConversionRateLine, fuelConversionRatePercentageColor)
 
     sleep(refreshTime)
+end
+
+function checkPeripherals()
+    if not peripheral.isPresent(inputFluxGateName) then
+        return error("Input flux gate disconnected!")
+    end
+    if not peripheral.isPresent("left") then
+        return error("Output flux gate disconnected!")
+    end
+    if not peripheral.isPresent("back") then
+        return error("Reactor disconnected!")
+    end
+    if not peripheral.isPresent(monitorName) then
+        return error("Monitor disconnected!")
+    end
 end
