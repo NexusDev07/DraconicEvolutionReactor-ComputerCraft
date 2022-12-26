@@ -38,7 +38,7 @@ local monitor = peripheral.wrap(monitorName)
 
 monitorSizeX, monitorSizeX = monitor.getSize()
 
-if monitorSizeX ~= 79 or monitorSizeX ~= 38 then
+if monitorSizeX ~= 79 or monitorSizeY ~= 38 then
     return error("The monitor must be 4 blocks long and 3 blocks high!", 0)
 end
 
