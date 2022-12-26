@@ -48,6 +48,23 @@ if monitorSizeX ~= 79 or monitorSizeY ~= 38 then
     return error("The monitor must be 4 blocks long and 3 blocks high!", 0)
 end
 
+function checkPeripherals()
+    if not peripheral.isPresent(inputFluxGateName) then
+        error("Input flux gate disconnected!")
+    end
+    if not peripheral.isPresent("left") then
+        error("Output flux gate disconnected!")
+    end
+    if not peripheral.isPresent("back") then
+        error("Reactor disconnected!")
+    end
+    if not peripheral.isPresent(monitorName) then
+        error("Monitor disconnected!")
+    end
+
+    return nil
+end
+
 while true do
     checkPeripherals()
 
@@ -222,19 +239,4 @@ while true do
     monitorDrawLine(monitor, 6, 26, fuelConversionRateLine, fuelConversionRatePercentageColor)
 
     sleep(refreshTime)
-end
-
-function checkPeripherals()
-    if not peripheral.isPresent(inputFluxGateName) then
-        return error("Input flux gate disconnected!")
-    end
-    if not peripheral.isPresent("left") then
-        return error("Output flux gate disconnected!")
-    end
-    if not peripheral.isPresent("back") then
-        return error("Reactor disconnected!")
-    end
-    if not peripheral.isPresent(monitorName) then
-        return error("Monitor disconnected!")
-    end
 end
