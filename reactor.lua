@@ -1,5 +1,6 @@
 require "controllers/MonitorController"
 require "controllers/ReactorController"
+require "lib/updater"
 
 local refreshTime = 1
 
@@ -7,6 +8,8 @@ local peripherals = peripheral.getNames()
 
 local inputFluxGateName = nil
 local monitorName = nil
+
+checkForUpdate()
 
 for i = 1, #peripherals do
     if not inputFluxGateName and string.match(peripherals[i], "flux_gate") then
@@ -40,6 +43,10 @@ local inputFluxGate = peripheral.wrap(inputFluxGateName)
 local outputFluxGate = peripheral.wrap("left")
 local reactor = peripheral.wrap("back")
 local monitor = peripheral.wrap(monitorName)
+
+if not monitor.isColor() then
+    return error("Only advanced computer is supported!", 0)
+end
 
 monitor.setTextScale(0.5)
 
