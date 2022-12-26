@@ -26,18 +26,22 @@ end
 if not inputFluxGateName then
     return error("No input flux gate found!", 0)
 end
+print("Input flux gate (" .. inputFluxGateName .. ") found!")
 
 if not peripheral.isPresent("left") then
     return error("No output flux gate found!", 0)
 end
+print("Output flux gate (left) found!")
 
 if not peripheral.isPresent("back") then
     return error("No reactor found!", 0)
 end
+print("Reactor (back) found!")
 
 if not monitorName then
     return error("No monitor found!", 0)
 end
+print("Monitor (" .. monitorName .. ") found!")
 
 local inputFluxGate = peripheral.wrap(inputFluxGateName)
 local outputFluxGate = peripheral.wrap("left")

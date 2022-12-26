@@ -1,4 +1,4 @@
-local installedVersion = "0.1.1-dev"
+local installedVersion = "0.1.2-dev"
 
 function checkForUpdate()
     local url = "https://raw.githubusercontent.com/NexusDeveloppement/DraconicEvolutionReactor-ComputerCraft/main/version.txt"
@@ -49,7 +49,7 @@ function update()
 
         term.setTextColor(colors.green)
         print("Update successful!")
-        print("Please restart the program.")
+        print("Starting...")
         term.setTextColor(colors.white)
 
         return true
