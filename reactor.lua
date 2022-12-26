@@ -142,5 +142,29 @@ while true do
     monitorWriteTextRight(monitor, fieldStrengthPercentage .. "%", 10, fieldStrengthPercentageColor, colors.black)
     monitorDrawLine(monitor, 6, 12, fieldStrengthLine, fieldStrengthPercentageColor)
 
+    local energySaturation = getReactorEnergySaturation(reactor)
+    local maxEnergySaturation = getReactorMaxEnergySaturation(reactor)
+    local energySaturationPercentage = math.floor((energySaturation / maxEnergySaturation) * 100)
+
+    local energySaturationPercentageColor = nil
+
+    if energySaturationPercentage <= 15 then
+        energySaturationPercentageColor = colors.green
+    elseif energySaturationPercentage <= 30 then
+        energySaturationPercentageColor = colors.lime
+    elseif energySaturationPercentage <= 50 then
+        energySaturationPercentageColor = colors.yellow
+    elseif energySaturationPercentage < 70 then
+        energySaturationPercentageColor = colors.orange
+    elseif energySaturationPercentage >= 70 then
+        energySaturationPercentageColor = colors.red
+    end
+
+    local energySaturationLine = math.floor(70 / 100 * energySaturationPercentage)
+
+    monitorWriteText(monitor, "Energy Saturation: ", 6, 14, colors.white, colors.black)
+    monitorWriteTextRight(monitor, energySaturationPercentage .. "%", 14, energySaturationPercentageColor, colors.black)
+    monitorDrawLine(monitor, 6, 16, energySaturationLine, energySaturationPercentageColor)
+
     sleep(refreshTime)
 end
