@@ -54,6 +54,7 @@ if not monitor.isColor() then
     return error("Only advanced computer is supported!", 0)
 end
 
+monitor.clear()
 monitor.setTextScale(0.5)
 
 monitorSizeX, monitorSizeY = monitor.getSize()
