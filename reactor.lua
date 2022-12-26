@@ -167,8 +167,8 @@ while true do
     monitorDrawLine(monitor, 6, 16, energySaturationLine, energySaturationPercentageColor)
 
     local fuelConversionRate = getReactorFuelConversionRate(reactor)
-    local maxFuelConversionRate = getReactorMaxFuelConversionRate(reactor)
-    local fuelConversionRatePercentage = math.floor((fuelConversionRate / maxFuelConversionRate) * 100)
+    local maxFuelConversion = getReactorMaxFuelConversion(reactor)
+    local fuelConversionRatePercentage = math.floor((fuelConversionRate / maxFuelConversion) * 100)
 
     local fuelConversionRatePercentageColor = nil
 
