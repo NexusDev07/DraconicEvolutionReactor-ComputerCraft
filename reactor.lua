@@ -108,7 +108,7 @@ while true do
     local temperatureLine = math.floor(70 / 100 * temperaturePercentage)
 
     monitorWriteText(monitor, "Temperature: ", 6, 6, colors.white, colors.black)
-    monitorWriteTextRight(monitor, temperature .. " (" .. temperaturePercentage .. "%)", 6, temperaturePercentageColor, colors.black)
+    monitorWriteTextRight(monitor, temperature .. "°C (" .. temperaturePercentage .. "%)", 6, temperaturePercentageColor, colors.black)
     monitorDrawLine(monitor, 6, 8, temperatureLine, temperaturePercentageColor)
 
     local fieldStrength = getReactorFieldStrength(reactor)
