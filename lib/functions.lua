@@ -54,7 +54,7 @@ function monitorWriteText(monitor, text, x, y, color, backgroundColor)
 end
 
 function monitorWriteTextRight(monitor, text, y, color, backgroundColor)
-    local x = monitor.getSize() - string.len(text)
+    local x = monitor.getSize() - string.len(text) - 4
 
     monitor.setCursorPos(x, y)
     monitor.setTextColor(color)
