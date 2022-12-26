@@ -166,9 +166,9 @@ while true do
     monitorWriteTextRight(monitor, energySaturationPercentage .. "%", 14, energySaturationPercentageColor, colors.black)
     monitorDrawLine(monitor, 6, 16, energySaturationLine, energySaturationPercentageColor)
 
-    local fuelConversionRate = getReactorFuelConversionRate(reactor)
+    local fuelConversion = getReactorFuelConversion(reactor)
     local maxFuelConversion = getReactorMaxFuelConversion(reactor)
-    local fuelConversionRatePercentage = math.floor((fuelConversionRate / maxFuelConversion) * 100)
+    local fuelConversionRatePercentage = math.floor((fuelConversion / maxFuelConversion) * 100)
 
     local fuelConversionRatePercentageColor = nil
 
@@ -189,6 +189,30 @@ while true do
     monitorWriteText(monitor, "Fuel Conversion Level: ", 6, 18, colors.white, colors.black)
     monitorWriteTextRight(monitor, fuelConversionRatePercentage .. "%", 18, fuelConversionRatePercentageColor, colors.black)
     monitorDrawLine(monitor, 6, 20, fuelConversionRateLine, fuelConversionRatePercentageColor)
+
+    local failSafe = getReactorFailSafe(reactor)
+    local displayedFailSafe = {}
+
+    if failSafe then
+        displayedFailSafe['status'] = "Enabled"
+        displayedFailSafe['color'] = colors.green
+    else
+        displayedFailSafe['status'] = "Disabled"
+        displayedFailSafe['color'] = colors.red
+    end
+    
+    monitorWriteText(monitor, "Fail Safe: ", 6, 22, colors.white, colors.black)
+    monitorWriteTextRight(monitor, displayedFailSafe['status'], 22, displayedFailSafe['color'], colors.black)
+
+    local generationRate = getReactorGenerationRate(reactor)
+
+    monitorWriteText(monitor, "Generation Rate: ", 6, 24, colors.white, colors.black)
+    monitorWriteTextRight(monitor, generationRate .. " RF/t", 24, colors.white, colors.black)
+
+    local fuelConversionRate = getReactorFuelConversionRate(reactor)
+
+    monitorWriteText(monitor, "Fuel Conversion Rate: ", 6, 26, colors.white, colors.black)
+    monitorWriteTextRight(monitor, fuelConversionRate .. " mb/t", 26, colors.white, colors.black)
 
     sleep(refreshTime)
 end
