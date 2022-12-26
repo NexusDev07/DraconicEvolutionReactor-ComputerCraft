@@ -103,7 +103,7 @@ while true do
         percentageColor = colors.orange
     end
 
-    local line = math.ceil(70 / 100 * percentage)
+    local line = math.floor(70 / 100 * percentage)
 
     monitorWriteText(monitor, "Field Strength: ", 6, 6, colors.white, colors.black)
     monitorWriteTextRight(monitor, percentage .. "%", 6, percentageColor, colors.black)
