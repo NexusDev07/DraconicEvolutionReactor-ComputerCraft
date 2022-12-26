@@ -36,9 +36,9 @@ local outputFluxGate = peripheral.wrap("left")
 local reactor = peripheral.wrap("back")
 local monitor = peripheral.wrap(monitorName)
 
-sizeX, sizeY = monitor.getSize()
+monitorSizeX, monitorSizeX = monitor.getSize()
 
-if sizeX ~= 79 or sizeY ~= 38 then
+if monitorSizeX ~= 79 or monitorSizeX ~= 38 then
     return error("The monitor must be 4 blocks long and 3 blocks high!", 0)
 end
 
