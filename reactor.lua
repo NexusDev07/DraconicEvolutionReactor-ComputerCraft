@@ -137,9 +137,9 @@ while true do
 
     local fieldStrengthLine = math.floor(70 / 100 * fieldStrengthPercentage)
 
-    monitorWriteText(monitor, "Field Strength: ", 6, 12, colors.white, colors.black)
-    monitorWriteTextRight(monitor, fieldStrengthPercentage .. "%", 12, fieldStrengthPercentageColor, colors.black)
-    monitorDrawLine(monitor, 6, 14, fieldStrengthLine, fieldStrengthPercentageColor)
+    monitorWriteText(monitor, "Field Strength: ", 6, 10, colors.white, colors.black)
+    monitorWriteTextRight(monitor, fieldStrengthPercentage .. "%", 10, fieldStrengthPercentageColor, colors.black)
+    monitorDrawLine(monitor, 6, 12, fieldStrengthLine, fieldStrengthPercentageColor)
 
     sleep(refreshTime)
 end
