@@ -83,8 +83,28 @@ while true do
     local maxFieldStrength = getReactorMaxFieldStrength(reactor)
     local percentage = math.ceil((fieldStrength / maxFieldStrength) * 100)
 
+    local percentageColor = nil
+
+    if percentage < 15 then
+        percentageColor = colors.red
+    elseif percentage < 30 then
+        percentageColor = colors.orange
+    elseif percentage < 40 then
+        percentageColor = colors.yellow
+    elseif percentage < 50 then
+        percentageColor = colors.lime
+    elseif percentage >= 50 and percentage <= 55 then
+        percentageColor = colors.green
+    elseif percentage > 55 and percentage <= 65 then
+        percentageColor = colors.lime
+    elseif percentage > 65 and percentage <= 70 then
+        percentageColor = colors.yellow
+    elseif percentage > 70 then
+        percentageColor = colors.orange
+    end
+
     monitorWriteText(monitor, "Field Strength: ", 6, 6, colors.white, colors.black)
-    monitorWriteTextRight(monitor, percentage .. "%", 6, colors.white, colors.black)
+    monitorWriteTextRight(monitor, percentage .. "%", 6, percentageColor, colors.black)
 
     sleep(refreshTime)
 end
