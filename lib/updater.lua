@@ -45,7 +45,7 @@ function update()
         update:close()
 
         shell.run("update")
-        fs.delete()
+        fs.delete("/update.lua")
 
         term.setTextColor(colors.green)
         print("Update successful!")
