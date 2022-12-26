@@ -53,6 +53,15 @@ function monitorWriteText(monitor, text, x, y, color, backgroundColor)
     monitor.write(text)
 end
 
+function monitorWriteTextRight(monitor, text, y, color, backgroundColor)
+    local x = monitor.getSize() - string.len(text)
+
+    monitor.setCursorPos(x, y)
+    monitor.setTextColor(color)
+    monitor.setBackgroundColor(backgroundColor)
+    monitor.write(text)
+end
+
 function monitorDrawLine(monitor, x, y, length, color)
     monitor.setCursorPos(x, y)
     monitor.setBackgroundColor(color)
