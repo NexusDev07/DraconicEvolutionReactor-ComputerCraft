@@ -85,7 +85,7 @@ end
 
 monitorDrawLine(monitor, 2, 30, 7, colors.gray)
 monitorWriteText(monitor, "CONTROLS", 7, 30, colors.white, colors.black)
-monitorDrawLine(monitor, 11, 30, 68, colors.gray)
+monitorDrawLine(monitor, 15, 30, 64, colors.gray)
 monitorDrawVerticalLine(monitor, 2, 31, 5, colors.gray)
 monitorDrawVerticalLine(monitor, 78, 31, 5, colors.gray)
 monitorDrawLine(monitor, 2, 78, 76, colors.gray)
