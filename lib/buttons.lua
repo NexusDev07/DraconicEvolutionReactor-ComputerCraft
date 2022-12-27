@@ -20,7 +20,7 @@ end
 function waitClick()
     local event, side, x, y = os.pullEvent("monitor_touch")
 
-    for button in buttons do
+    for name, button in pairs(buttons) do
         if x >= button.x1 and x <= button.x2 and y >= button.y1 and y <= button.y2 then
             button.onClick()
         end
