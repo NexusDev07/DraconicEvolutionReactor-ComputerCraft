@@ -262,6 +262,8 @@ function reactorInfo()
     monitorWriteTextRight(monitor, fuelConversionRatePercentage .. "%", 24, fuelConversionRatePercentageColor, colors.black)
     monitorDrawLine(monitor, 6, 26, fuelConversionRateLine, fuelConversionRatePercentageColor)
 
+    clearButtons(monitor)
+
     if status == "cold" then
         addButton(monitor, "charge", "Charge", 4, 32, 12, 35, colors.orange, colors.white, colors.orange, function()
             chargeButton(reactor)
