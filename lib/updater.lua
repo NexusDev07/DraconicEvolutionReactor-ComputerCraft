@@ -1,4 +1,4 @@
-local installedVersion = "0.1.9-dev"
+local installedVersion = "0.1.10-dev"
 
 function checkForUpdate()
     local url = "https://raw.githubusercontent.com/NexusDeveloppement/DraconicEvolutionReactor-ComputerCraft/main/version.txt"
@@ -74,6 +74,8 @@ function checkForUpdateWithoutRead()
             term.setTextColor(colors.orange)
             print("New version available! Restart the program to update.")
             term.setTextColor(colors.white)
+
+            return true
         end
     end
 end

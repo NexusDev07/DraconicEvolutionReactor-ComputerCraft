@@ -85,8 +85,7 @@ end
 while true do
     checkPeripherals()
     
-    if not updateMessage then
-        checkForUpdateWithoutRead()
+    if checkForUpdateWithoutRead() and not updateMessage then
         updateMessage = true
     end
 
