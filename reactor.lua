@@ -83,12 +83,12 @@ function checkPeripherals()
     end
 end
 
-monitorDrawLine(monitor, 6, 28, 7, colors.gray)
-monitorWriteText(monitor, "CONTROLS", 7, 28, colors.white, colors.black)
-monitorDrawLine(monitor, 11, 28, 68, colors.gray)
-monitorDrawVerticalLine(monitor, 2, 29, 5, colors.gray)
-monitorDrawVerticalLine(monitor, 78, 29, 5, colors.gray)
-monitorDrawLine(monitor, 2, 34, 76, colors.gray)
+monitorDrawLine(monitor, 6, 30, 7, colors.gray)
+monitorWriteText(monitor, "CONTROLS", 7, 30, colors.white, colors.black)
+monitorDrawLine(monitor, 11, 30, 68, colors.gray)
+monitorDrawVerticalLine(monitor, 2, 31, 5, colors.gray)
+monitorDrawVerticalLine(monitor, 78, 31, 5, colors.gray)
+monitorDrawLine(monitor, 2, 78, 76, colors.gray)
 
 while true do
     checkPeripherals()
