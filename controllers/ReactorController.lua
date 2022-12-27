@@ -45,3 +45,7 @@ end
 function getReactorMaxEnergySaturation(reactor)
     return reactor.getReactorInfo().maxEnergySaturation
 end
+
+function reactorToggleFailSafe(reactor)
+    reactor.setFailSafe(not getReactorFailSafe(reactor))
+end

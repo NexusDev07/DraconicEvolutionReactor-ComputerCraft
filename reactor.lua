@@ -1,6 +1,7 @@
 require "controllers/MonitorController"
 require "controllers/ReactorController"
 require "lib/updater"
+require "lib/buttons"
 
 local refreshTime = 1
 local updateMessage = false
@@ -89,6 +90,10 @@ monitorDrawLine(monitor, 15, 30, 64, colors.gray)
 monitorDrawVerticalLine(monitor, 2, 31, 5, colors.gray)
 monitorDrawVerticalLine(monitor, 78, 31, 5, colors.gray)
 monitorDrawLine(monitor, 2, 37, 76, colors.gray)
+
+addButton(monitor, "toggleFailSafe", "Toggle Fail Safe", 4, 32, 18, 36, colors.gray, colors.white, colors.black, function()
+    reactorToggleFailSafe(reactor)
+end)
 
 while true do
     checkPeripherals()

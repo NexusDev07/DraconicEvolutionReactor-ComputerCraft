@@ -45,6 +45,12 @@ function monitorDrawVerticalLine(monitor, x, y, length, color)
     monitor.setBackgroundColor(colors.black)
 end
 
+function monitorDrawRectangle(monitor, x, y, width, height, color)
+    for i = 0, height do
+        monitorDrawLine(monitor, x, y + i, width, color)
+    end
+end
+
 function monitorClearLines(monitor, y, length, color)
     for i = 0, length do
         monitor.setCursorPos(1, y + i)
