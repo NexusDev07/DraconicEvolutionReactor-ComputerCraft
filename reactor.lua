@@ -3,7 +3,7 @@ require "controllers/ReactorController"
 require "lib/updater"
 
 local refreshTime = 1
-local updateMessage = 0
+local updateMessage = false
 
 local peripherals = peripheral.getNames()
 
@@ -83,13 +83,12 @@ end
 while true do
     checkPeripherals()
     
-    if updateMessage == 0 then
+    if not updateMessage then
         checkForUpdateWithoutRead()
-        updateMessage = 1
+        updateMessage = true
     end
 
-    monitor.setBackgroundColor(colors.black)
-    monitorClearLines(monitor, 3, 23)
+    monitorClearLines(monitor, 3, 23, colors.black)
     
     monitorDrawLine(monitor, 2, 2, 7, colors.gray)
     monitorWriteText(monitor, "INFO", 7, 2, colors.white, colors.black)
