@@ -262,13 +262,34 @@ function reactorInfo()
     monitorWriteTextRight(monitor, fuelConversionRatePercentage .. "%", 24, fuelConversionRatePercentageColor, colors.black)
     monitorDrawLine(monitor, 6, 26, fuelConversionRateLine, fuelConversionRatePercentageColor)
 
-    if status == "warming_up" and temperature >= 2000 and fieldStrengthPercentage >= 50 and energySaturationPercentage >= 50 then
+    if status == "cold" then
+        addButton(monitor, "charge", "Charge", 4, 32, 12, 35, colors.orange, colors.white, colors.orange, function()
+            chargeButton(reactor)
+        end)
+    elseif status == "warming_up" and temperature >= 2000 and fieldStrengthPercentage >= 50 and energySaturationPercentage >= 50 then
         clearButtons(monitor)
         addButton(monitor, "shutdown", "Shutdown", 4, 32, 14, 35, colors.red, colors.white, colors.red, function()
             shutdownButton(reactor)
         end)
         addButton(monitor, "activate", "Activate", 16, 32, 26, 35, colors.green, colors.white, colors.green, function()
             activateButton(reactor)
+        end)
+    elseif status == "warming_up" then
+        clearButtons(monitor)
+        addButton(monitor, "shutdown", "Shutdown", 4, 32, 14, 35, colors.red, colors.white, colors.red, function()
+            shutdownButton(reactor)
+        end)
+    elseif status == "running" then
+        addButton(monitor, "shutdown", "Shutdown", 4, 32, 14, 35, colors.red, colors.white, colors.red, function()
+            shutdownButton(reactor)
+        end)
+    elseif status == "stopping" then
+        addButton(monitor, "activate", "Activate", 4, 32, 14, 35, colors.green, colors.white, colors.green, function()
+            activateButton(reactor)
+        end)
+    elseif status == "cooling" then
+        addButton(monitor, "charge", "Charge", 4, 32, 12, 35, colors.orange, colors.white, colors.orange, function()
+            chargeButton(reactor)
         end)
     end
 
