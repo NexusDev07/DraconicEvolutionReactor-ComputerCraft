@@ -264,7 +264,7 @@ function reactorInfo()
 
     sleep(refreshTime)
 
-    if status == "warming_up" and temperature >= 2500 and fieldStrengthPercentage >= 50 and energySaturationPercentage >= 50 then
+    if status == "warming_up" and temperature >= 2000 and fieldStrengthPercentage >= 50 and energySaturationPercentage >= 50 then
         clearButtons(monitor)
         addButton(monitor, "shutdown", "Shutdown", 4, 32, 14, 35, colors.red, colors.white, colors.red, function()
             shutdownButton(reactor)
