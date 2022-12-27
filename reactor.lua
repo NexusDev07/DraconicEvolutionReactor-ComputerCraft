@@ -10,6 +10,7 @@ local peripherals = peripheral.getNames()
 local inputFluxGateName = nil
 local monitorName = nil
 
+term.setCursorPos(0, 0)
 term.clear()
 
 print("Checking for updates...")
