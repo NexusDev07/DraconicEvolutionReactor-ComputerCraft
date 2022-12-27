@@ -323,10 +323,14 @@ elseif reactorStatus == "running" then
     addButton(monitor, "shutdown", "Shutdown", 4, 32, 14, 35, colors.red, colors.white, colors.red, function()
         shutdownButton(reactor)
     end)
-elseif reactorStatus == "cooling" then
-    addButton(monitor, "activate", "Activate", 10, 32, 14, 35, colors.green, colors.white, colors.green, function()
+elseif reactorStatus == "stopping" then
+    addButton(monitor, "activate", "Activate", 4, 32, 14, 35, colors.green, colors.white, colors.green, function()
         activateButton(reactor)
-    end)   
+    end)
+elseif reactorStatus == "cooling" then
+        addButton(monitor, "charge", "Charge", 4, 32, 12, 35, colors.orange, colors.white, colors.orange, function()
+            chargeButton(reactor)
+        end)
 end
 
 while true do

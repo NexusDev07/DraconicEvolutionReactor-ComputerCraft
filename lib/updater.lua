@@ -1,4 +1,4 @@
-local installedVersion = "0.1.31-dev"
+local installedVersion = "0.1.32-dev"
 
 function checkForUpdate()
     local url = "https://raw.githubusercontent.com/NexusDeveloppement/DraconicEvolutionReactor-ComputerCraft/main/version.txt"
