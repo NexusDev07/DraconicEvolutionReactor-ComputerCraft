@@ -13,7 +13,11 @@ function addButton(monitor, name, text, x1, y1, x2, y2, color, textColor, textBa
     monitorWriteText(monitor, text, x1 + 1, y1 + 1, textColor, textBackgroundClolor)
 end
 
-function clearButtons()
+function clearButtons(monitor)
+    for name, button in pairs(buttons) do
+        monitorDrawRectangle(monitor, button.x1, button.y1, button.x2 - button.x1, button.y2 - button.y1, colors.black)
+    end
+
     buttons = {}
 end
 

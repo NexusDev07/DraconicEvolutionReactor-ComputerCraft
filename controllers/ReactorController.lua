@@ -49,3 +49,15 @@ end
 function reactorToggleFailSafe(reactor)
     reactor.setFailSafe(not getReactorFailSafe(reactor))
 end
+
+function chargeReactor(reactor)
+    reactor.chargeReactor()
+end
+
+function activateReactor(reactor)
+    reactor.activateReactor()
+end
+
+function stopReactor(reactor)
+    reactor.stopReactor()
+end

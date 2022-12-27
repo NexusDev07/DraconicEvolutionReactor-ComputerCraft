@@ -265,17 +265,59 @@ function reactorInfo()
     sleep(refreshTime)
 end
 
+function shutdownButton(reactor)
+    stopReactor(reactor)
+    clearButtons(monitor)
+    addButton(monitor, "charge", "Charge", 10, 32, 14, 35, colors.blue, colors.white, colors.blue, function()
+        chargeButton(reactor)
+    end)
+end
+
+function activateButton()
+    activateReactor(reactor)
+    clearButtons(monitor)
+    addButton(monitor, "shutdown", "Shutdown", 10, 32, 14, 35, colors.red, colors.white, colors.red, function()
+        shutdownButton(reactor)
+    end)
+end
+
+function chargeButton(reactor)
+    chargeReactor(reactor)
+    clearButtons(monitor)
+    addButton(monitor, "activate", "Activate", 10, 32, 14, 35, colors.green, colors.white, colors.green, function()
+        activateButton(reactor)
+    end)
+end
+
 monitorDrawLine(monitor, 2, 30, 7, colors.gray)
 monitorWriteText(monitor, "CONTROLS", 7, 30, colors.white, colors.black)
 monitorDrawLine(monitor, 15, 30, 64, colors.gray)
 monitorDrawVerticalLine(monitor, 2, 31, 5, colors.gray)
 monitorDrawVerticalLine(monitor, 78, 31, 5, colors.gray)
-monitorDrawLine(monitor, 2, 37, 76, colors.gray)
+monitorDrawLine(monitor, 2, 37, 77, colors.gray)
 
-addButton(monitor, "toggleFailSafe", "Toggle Fail Safe", 4, 32, 18, 36, colors.gray, colors.white, colors.black, function()
-    reactorToggleFailSafe(reactor)
-end)
+local reactorStatus = getReactorStatus(reactor)
 
+if reactorStatus == "cold" then
+    addButton(monitor, "charge", "Charge", 4, 32, 8, 35, colors.orange, colors.white, colors.orange, function()
+        chargeButton(reactor)
+    end)
+elseif reactorStatus == "warming_up" then
+    addButton(monitor, "activate", "Activate", 10, 32, 14, 35, colors.green, colors.white, colors.green, function()
+        activateButton(reactor)
+    end)
+    addButton(monitor, "shutdown", "Shutdown", 16, 32, 20, 35, colors.red, colors.white, colors.red, function()
+        shutdownButton(reactor)
+    end)
+elseif reactorStatus == "running" then
+    addButton(monitor, "shutdown", "Shutdown", 10, 32, 14, 35, colors.red, colors.white, colors.red, function()
+        shutdownButton(reactor)
+    end)
+elseif reactorStatus == "cooling" then
+    addButton(monitor, "activate", "Activate", 10, 32, 14, 35, colors.green, colors.white, colors.green, function()
+        activateButton(reactor)
+    end)   
+end
 
 while true do
     parallel.waitForAny(reactorInfo, waitClick)
