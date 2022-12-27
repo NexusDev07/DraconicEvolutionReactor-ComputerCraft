@@ -263,12 +263,22 @@ function reactorInfo()
     monitorDrawLine(monitor, 6, 26, fuelConversionRateLine, fuelConversionRatePercentageColor)
 
     sleep(refreshTime)
+
+    if status == "warming_up" and temperature >= 2500 and fieldStrengthPercentage >= 50 and energySaturationPercentage >= 50 then
+        clearButtons(monitor)
+        addButton(monitor, "shutdown", "Shutdown", 4, 32, 14, 35, colors.red, colors.white, colors.red, function()
+            shutdownButton(reactor)
+        end)
+        addButton(monitor, "activate", "Activate", 16, 32, 26, 35, colors.green, colors.white, colors.green, function()
+            activateButton(reactor)
+        end)
+    end
 end
 
 function shutdownButton(reactor)
     stopReactor(reactor)
     clearButtons(monitor)
-    addButton(monitor, "charge", "Charge", 10, 32, 14, 35, colors.blue, colors.white, colors.blue, function()
+    addButton(monitor, "charge", "Charge", 4, 32, 12, 35, colors.orange, colors.white, colors.orange, function()
         chargeButton(reactor)
     end)
 end
@@ -287,9 +297,6 @@ function chargeButton(reactor)
     addButton(monitor, "shutdown", "Shutdown", 4, 32, 14, 35, colors.red, colors.white, colors.red, function()
         shutdownButton(reactor)
     end)
-    addButton(monitor, "activate", "Activate", 10, 32, 14, 35, colors.green, colors.white, colors.green, function()
-        activateButton(reactor)
-    end)
 end
 
 monitorDrawLine(monitor, 2, 30, 7, colors.gray)
@@ -306,11 +313,11 @@ if reactorStatus == "cold" then
         chargeButton(reactor)
     end)
 elseif reactorStatus == "warming_up" then
-    addButton(monitor, "activate", "Activate", 10, 32, 14, 35, colors.green, colors.white, colors.green, function()
-        activateButton(reactor)
-    end)
-    addButton(monitor, "shutdown", "Shutdown", 16, 32, 20, 35, colors.red, colors.white, colors.red, function()
+    addButton(monitor, "shutdown", "Shutdown", 4, 32, 14, 35, colors.red, colors.white, colors.red, function()
         shutdownButton(reactor)
+    end)
+    addButton(monitor, "activate", "Activate", 16, 32, 26, 35, colors.green, colors.white, colors.green, function()
+        activateButton(reactor)
     end)
 elseif reactorStatus == "running" then
     addButton(monitor, "shutdown", "Shutdown", 4, 32, 14, 35, colors.red, colors.white, colors.red, function()
