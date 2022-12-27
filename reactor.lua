@@ -10,7 +10,7 @@ local peripherals = peripheral.getNames()
 local inputFluxGateName = nil
 local monitorName = nil
 
-term.setCursorPos(0, 0)
+term.setCursorPos(1, 1)
 term.clear()
 
 print("Checking for updates...")
@@ -86,8 +86,10 @@ end
 while true do
     checkPeripherals()
     
-    if checkForUpdateWithoutRead() and not updateMessage then
-        updateMessage = true
+    if not updateMessage then
+        if checkForUpdateWithoutRead() then
+            updateMessage = true
+        end
     end
 
     monitorClearLines(monitor, 3, 23, colors.black)
