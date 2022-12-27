@@ -101,6 +101,7 @@ while true do
     
     if not updateMessage then
         if checkForUpdateWithoutRead() then
+            monitorWriteTextMiddle(monitor, "An update is available!", 2, colors.white, colors.orange)
             updateMessage = true
         end
     end

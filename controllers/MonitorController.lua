@@ -7,6 +7,17 @@ function monitorWriteText(monitor, text, x, y, color, backgroundColor)
     monitor.setBackgroundColor(colors.black)
 end
 
+function monitorWriteTextMiddle(monitor, text, y, color, backgroundColor)
+    local x = math.floor(monitor.getSize() / 2) - math.floor(string.len(text) / 2)
+
+    monitor.setCursorPos(x, y)
+    monitor.setTextColor(color)
+    monitor.setBackgroundColor(backgroundColor)
+    monitor.write(text)
+    monitor.setTextColor(colors.white)
+    monitor.setBackgroundColor(colors.black)
+end
+
 function monitorWriteTextRight(monitor, text, y, color, backgroundColor)
     local x = monitor.getSize() - string.len(text) - 4
 
