@@ -298,7 +298,7 @@ function reactorInfo()
     sleep(refreshTime)
 end
 
-function shutdownButton(reactor)
+function shutdownButton()
     stopReactor(reactor)
     clearButtons(monitor)
     addButton(monitor, "charge", "Charge", 4, 32, 12, 35, colors.orange, colors.white, colors.orange, function()
@@ -314,7 +314,7 @@ function activateButton()
     end)
 end
 
-function chargeButton(reactor)
+function chargeButton()
     chargeReactor(reactor)
     clearButtons(monitor)
     addButton(monitor, "shutdown", "Shutdown", 4, 32, 14, 35, colors.red, colors.white, colors.red, function()
@@ -333,26 +333,26 @@ local reactorStatus = getReactorStatus(reactor)
 
 if reactorStatus == "cold" then
     addButton(monitor, "charge", "Charge", 4, 32, 12, 35, colors.orange, colors.white, colors.orange, function()
-        chargeButton(reactor)
+        chargeButton()
     end)
 elseif reactorStatus == "warming_up" then
     addButton(monitor, "shutdown", "Shutdown", 4, 32, 14, 35, colors.red, colors.white, colors.red, function()
-        shutdownButton(reactor)
+        shutdownButton()
     end)
     addButton(monitor, "activate", "Activate", 16, 32, 26, 35, colors.green, colors.white, colors.green, function()
-        activateButton(reactor)
+        activateButton()
     end)
 elseif reactorStatus == "running" then
     addButton(monitor, "shutdown", "Shutdown", 4, 32, 14, 35, colors.red, colors.white, colors.red, function()
-        shutdownButton(reactor)
+        shutdownButton()
     end)
 elseif reactorStatus == "stopping" then
     addButton(monitor, "activate", "Activate", 4, 32, 14, 35, colors.green, colors.white, colors.green, function()
-        activateButton(reactor)
+        activateButton()
     end)
 elseif reactorStatus == "cooling" then
         addButton(monitor, "charge", "Charge", 4, 32, 12, 35, colors.orange, colors.white, colors.orange, function()
-            chargeButton(reactor)
+            chargeButton()
         end)
 end
 
