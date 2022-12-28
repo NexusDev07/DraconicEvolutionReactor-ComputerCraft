@@ -309,7 +309,7 @@ end
 function activateButton()
     activateReactor(reactor)
     clearButtons(monitor)
-    addButton(monitor, "shutdown", "Shutdown", 10, 32, 14, 35, colors.red, colors.white, colors.red, function()
+    addButton(monitor, "shutdown", "Shutdown", 4, 32, 14, 35, colors.red, colors.white, colors.red, function()
         shutdownButton(reactor)
     end)
 end
