@@ -5,7 +5,7 @@ function initializeConfig()
     }
 
     local file = io.open("/config.txt", "w")
-    file:write("automaticManagement=" .. tostring(config.automaticManagement))
+    file:write("automaticManagement=" .. tostring(config.automaticManagement) .. "\n")
     file:write("mode=" .. config.mode)
     file:close()
 end
