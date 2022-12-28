@@ -1,3 +1,4 @@
+require "controllers/ConfigController"
 require "controllers/MonitorController"
 require "controllers/ReactorController"
 require "lib/updater"
@@ -5,6 +6,8 @@ require "lib/buttons"
 
 local refreshTime = 1
 local updateMessage = false
+
+local config = nil
 
 local peripherals = peripheral.getNames()
 
@@ -68,6 +71,12 @@ monitorSizeX, monitorSizeY = monitor.getSize()
 if monitorSizeX ~= 79 or monitorSizeY ~= 38 then
     return error("The monitor must be 4 blocks long and 3 blocks high!", 0)
 end
+
+if not fs.exists("config.txt") then
+    initializeConfig()
+end
+
+config = loadConfig()
 
 function checkPeripherals()
     if not peripheral.isPresent(inputFluxGateName) then

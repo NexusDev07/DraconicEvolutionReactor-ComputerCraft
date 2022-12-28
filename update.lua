@@ -1,10 +1,12 @@
 local reactorLua = "https://raw.githubusercontent.com/NexusDeveloppement/DraconicEvolutionReactor-ComputerCraft/main/reactor.lua"
+local configControllerLua = "https://raw.githubusercontent.com/NexusDeveloppement/DraconicEvolutionReactor-ComputerCraft/main/controllers/ConfigController.lua"
 local monitorControllerLua = "https://raw.githubusercontent.com/NexusDeveloppement/DraconicEvolutionReactor-ComputerCraft/main/controllers/MonitorController.lua"
 local reactorControllerLua = "https://raw.githubusercontent.com/NexusDeveloppement/DraconicEvolutionReactor-ComputerCraft/main/controllers/ReactorController.lua"
 local updaterLua = "https://raw.githubusercontent.com/NexusDeveloppement/DraconicEvolutionReactor-ComputerCraft/main/lib/updater.lua"
 local buttonsLua = "https://raw.githubusercontent.com/NexusDeveloppement/DraconicEvolutionReactor-ComputerCraft/main/lib/buttons.lua"
 
 local getReactorLua = http.get(reactorLua)
+local getConfigControllerLua = http.get(configControllerLua)
 local getMonitorControllerLua = http.get(monitorControllerLua)
 local getReactorControllerLua = http.get(reactorControllerLua)
 local getUpdaterLua = http.get(updaterLua)
@@ -13,6 +15,10 @@ local getButtonsLua = http.get(buttonsLua)
 local reactor = io.open("/reactor.lua", "w")
 reactor:write(getReactorLua.readAll())
 reactor:close()
+
+local configController = io.open("/controllers/ConfigController.lua", "w")
+configController:write(getConfigControllerLua.readAll())
+configController:close()
 
 local monitorController = io.open("/controllers/MonitorController.lua", "w")
 monitorController:write(getMonitorControllerLua.readAll())
